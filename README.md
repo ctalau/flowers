@@ -1,41 +1,24 @@
+---
+description: asdasdas
+---
+
 # Initial page
 
-## Getting Super Powers
+## 15.0.0 - 2042-12-03
 
-Becoming a super hero is a fairly straight forward process:
+### Fixed
 
-```
-$ give me super-powers
-```
+* Removed humans, they weren't doing fine with animals.
 
-asdadasdas
+### Changed
 
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.asasdasds
-{% endhint %}
+* Animals are now super cute, all of them.
 
-Once you're strong enough, save the world:
+## 14.0.0 - 2042-10-06
 
-{% tabs %}
-{% tab title="Bash" %}
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-{% endcode %}
-{% endtab %}
+### Added
 
-{% tab title="CPP" %}
-{% code title="file.sh" %}
-```
-asdasdasdasd
-```
-{% endcode %}
-{% endtab %}
-{% endtabs %}
+* Introduced animals into the world, we believe they're going to be a neat addition.
 
-$$
-a = \sqrt {b}
-$$
+
 
