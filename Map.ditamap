@@ -2,4 +2,5 @@
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
     <title>Inner</title>
+    <topicref href="Inner%20Topic.dita"/>
 </map>
