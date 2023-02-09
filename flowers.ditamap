@@ -19,10 +19,6 @@ When you commit or save the map, all the modified topics are also saved.
       <topicref href="topics/flowers/iris.dita"/>
       <topicref href="topics/flowers/snowdrop.dita"/>
     </topicref>
-    <topicref href="concepts/summerFlowers.dita" collection-type="sequence">
-      <topicref href="topics/flowers/gardenia.dita"/>
-      <topicref href="topics/flowers/lilac.dita"/>
-    </topicref>
     <topicref href="concepts/autumnFlowers.dita" collection-type="sequence">
       <topicref href="topics/flowers/chrysanthemum.dita"/>
       <topicref href="topics/flowers/salvia.dita"/>
