@@ -3,9 +3,6 @@
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
 <!-- Some commit 2023 -->
 <map title="Growing Flowers">
-  <topicref href="../../../flowers/topics/introduction.dita">
-    <topicref href="Map.ditamap" format="ditamap"/>
-  </topicref>
   <topicref href="topics/care.dita">
     <topicref href="tasks/pruning.dita"/>
     <topicref href="tasks/gardenPreparation.dita"/>
@@ -27,7 +24,6 @@
       <topicref href="topics/flowers/gerbera.dita"/>
     </topicref>
   </topicref>
-  <topicref href="topics/flowers/gerberasss.dita"/>
   <?oxy_comment_start author="Mary" timestamp="20120510T115308+0300" comment="We should review the list of glossary terms. I think there are many technical terms in the documentation that need to be addressed."?>
   <topichead navtitle="Glossary" type="topic"><?oxy_comment_end?>
     <topicref navtitle="Genus" href="concepts/glossaryGenus.dita" keys="flowers.genus" print="yes"/>
