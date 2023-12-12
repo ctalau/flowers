@@ -1,8 +1,479 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
-<topic id="topic_yrs_yqy_szb">
-    <title></title>
+<topic id="testMermaidDiagram">
+    <title>Oxygen Content Fusion 6.0 Project Tasks</title>
     <body>
-        <p></p>
+        <p>Content Fusion 6.0 includes a <i>Projects</i> feature that makes it possible for an
+            organization to integrate a Git repository that contains DITA content and changes
+            proposed by reviewers can be integrated back into the DITA project directly within
+            Content Fusion.</p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">%%{init: { 'logLevel': 'debug', 'gitGraph': {'showBranches': true, 'showCommitLabel':false,'mainBranchName': 'project'}} }%%
+gitGraph
+    commit
+    commit
+    branch task
+    checkout project
+    commit
+    checkout task
+    commit
+    checkout project
+    commit
+    checkout task
+    commit
+    checkout project
+    merge task
+    commit
+    commit</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">pie title What Voldemort doesn't have?
+         "FRIENDS" : 2
+         "FAMILY" : 3
+         "NOSE" : 45</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">pie title NETFLIX
+         "Time spent looking for movie" : 90
+         "Time spent watching it" : 10</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">graph LR
+    A[Square Rect] -- Link text --> B((Circle))
+    A --> C(Round Rect)
+    B --> D{Rhombus}
+    C --> D</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">graph TB
+    sq[Square shape] --> ci((Circle shape))
+
+    subgraph A
+        od>Odd shape]-- Two line&lt;br/>edge comment --> ro
+        di{Diamond with &lt;br/> line break} -.-> ro(Rounded&lt;br>square&lt;br>shape)
+        di==>ro2(Rounded square shape)
+    end
+
+    %% Notice that no text in shape are added here instead that is appended further down
+    e --> od3>Really long text with linebreak&lt;br>in an Odd shape]
+
+    %% Comments after double percent signs
+    e((Inner / circle&lt;br>and some odd &lt;br>special characters)) --> f(,.?!+-*ز)
+
+    cyr[Cyrillic]-->cyr2((Circle shape Начало));
+
+     classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+     classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+     class sq,e green
+     class di orange</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">sequenceDiagram
+    loop Daily query
+        Alice->>Bob: Hello Bob, how are you?
+        alt is sick
+            Bob->>Alice: Not so good :(
+        else is well
+            Bob->>Alice: Feeling fresh like a daisy
+        end
+
+        opt Extra response
+            Bob->>Alice: Thanks for asking
+        end
+    end</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts&lt;br/>prevail...
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">sequenceDiagram
+    participant web as Web Browser
+    participant blog as Blog Service
+    participant account as Account Service
+    participant mail as Mail Service
+    participant db as Storage
+
+    Note over web,db: The user must be logged in to submit blog posts
+    web->>+account: Logs in using credentials
+    account->>db: Query stored accounts
+    db->>account: Respond with query result
+
+    alt Credentials not found
+        account->>web: Invalid credentials
+    else Credentials found
+        account->>-web: Successfully logged in
+
+        Note over web,db: When the user is authenticated, they can now submit new posts
+        web->>+blog: Submit new post
+        blog->>db: Store post data
+
+        par Notifications
+            blog--)mail: Send mail to blog subscribers
+            blog--)db: Store in-site notifications
+        and Response
+            blog-->>-web: Successfully posted
+        end
+    end</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">gitGraph:
+    commit "Ashish"
+    branch newbranch
+    checkout newbranch
+    commit id:"1111"
+    commit tag:"test"
+    checkout main
+    commit type: HIGHLIGHT
+    commit
+    merge newbranch
+    commit
+    branch b2
+    commit</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">    C4Context
+      title System Context diagram for Internet Banking System
+      Enterprise_Boundary(b0, "BankBoundary0") {
+        Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
+        Person(customerB, "Banking Customer B")
+        Person_Ext(customerC, "Banking Customer C", "desc")
+
+        Person(customerD, "Banking Customer D", "A customer of the bank, &lt;br/> with personal bank accounts.")
+
+        System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
+
+        Enterprise_Boundary(b1, "BankBoundary") {
+
+          SystemDb_Ext(SystemE, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+
+          System_Boundary(b2, "BankBoundary2") {
+            System(SystemA, "Banking System A")
+            System(SystemB, "Banking System B", "A system of the bank, with personal bank accounts. next line.")
+          }
+
+          System_Ext(SystemC, "E-mail system", "The internal Microsoft Exchange e-mail system.")
+          SystemDb(SystemD, "Banking System D Database", "A system of the bank, with personal bank accounts.")
+
+          Boundary(b3, "BankBoundary3", "boundary") {
+            SystemQueue(SystemF, "Banking System F Queue", "A system of the bank.")
+            SystemQueue_Ext(SystemG, "Banking System G Queue", "A system of the bank, with personal bank accounts.")
+          }
+        }
+      }
+
+      BiRel(customerA, SystemAA, "Uses")
+      BiRel(SystemAA, SystemE, "Uses")
+      Rel(SystemAA, SystemC, "Sends e-mails", "SMTP")
+      Rel(SystemC, customerA, "Sends e-mails to")
+
+      UpdateElementStyle(customerA, $fontColor="red", $bgColor="grey", $borderColor="red")
+      UpdateRelStyle(customerA, SystemAA, $textColor="blue", $lineColor="blue", $offsetX="5")
+      UpdateRelStyle(SystemAA, SystemE, $textColor="blue", $lineColor="blue", $offsetY="-10")
+      UpdateRelStyle(SystemAA, SystemC, $textColor="blue", $lineColor="blue", $offsetY="-40", $offsetX="-50")
+      UpdateRelStyle(SystemC, customerA, $textColor="red", $lineColor="red", $offsetX="-50", $offsetY="20")
+
+      UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness&lt;br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">timeline
+    title History of Social Media Platform
+    2002 : LinkedIn
+    2004 : Facebook : Google
+    2005 : Youtube
+    2006 : Twitter</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">timeline
+        title MermaidChart 2023 Timeline
+        section 2023 Q1 &lt;br> Release Personal Tier
+          Buttet 1 : sub-point 1a : sub-point 1b
+               : sub-point 1c
+          Bullet 2 : sub-point 2a : sub-point 2b
+        section 2023 Q2 &lt;br> Release XYZ Tier
+          Buttet 3 : sub-point &lt;br> 3a : sub-point 3b
+               : sub-point 3c
+          Bullet 4 : sub-point 4a : sub-point 4b</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">    %%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
+              'cScale0': '#ff0000', 'cScaleLabel0': '#ffffff',
+              'cScale1': '#00ff00',
+              'cScale2': '#0000ff', 'cScaleLabel2': '#ffffff'
+       } } }%%
+       timeline
+        title History of Social Media Platform
+          2002 : LinkedIn
+          2004 : Facebook : Google
+          2005 : Youtube
+          2006 : Twitter
+          2007 : Tumblr
+          2008 : Instagram
+          2010 : Pinterest</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">%%{init: { 'logLevel': 'debug', 'theme': 'default' } }%%
+    timeline
+        title History of Social Media Platform
+          2002 : LinkedIn
+          2004 : Facebook : Google
+          2005 : Youtube
+          2006 : Twitter
+          2007 : Tumblr
+          2008 : Instagram
+          2010 : Pinterest</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">stateDiagram-v2
+    [*] --> First
+
+    state First {
+        [*] --> Second
+
+        state Second {
+            [*] --> second
+            second --> Third
+
+            state Third {
+                [*] --> third
+                third --> [*]
+            }
+        }
+    }</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">stateDiagram-v2
+    [*] --> Active
+
+    state Active {
+        [*] --> NumLockOff
+        NumLockOff --> NumLockOn : EvNumLockPressed
+        NumLockOn --> NumLockOff : EvNumLockPressed
+        --
+        [*] --> CapsLockOff
+        CapsLockOff --> CapsLockOn : EvCapsLockPressed
+        CapsLockOn --> CapsLockOff : EvCapsLockPressed
+        --
+        [*] --> ScrollLockOff
+        ScrollLockOff --> ScrollLockOn : EvScrollLockPressed
+        ScrollLockOn --> ScrollLockOff : EvScrollLockPressed
+    }</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">---
+title: Animal example
+---
+classDiagram
+    note "From Duck till Zebra"
+    Animal &lt;|-- Duck
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    Animal &lt;|-- Fish
+    Animal &lt;|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+        +String beakColor
+        +swim()
+        +quack()
+    }
+    class Fish{
+        -int sizeInFeet
+        -canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">quadrantChart
+    title Reach and engagement of campaigns
+    x-axis Low Reach --> High Reach
+    y-axis Low Engagement --> High Engagement
+    quadrant-1 We should expand
+    quadrant-2 Need to promote
+    quadrant-3 Re-evaluate
+    quadrant-4 May be improved
+    Campaign A: [0.3, 0.6]
+    Campaign B: [0.45, 0.23]
+    Campaign C: [0.57, 0.69]
+    Campaign D: [0.78, 0.34]
+    Campaign E: [0.40, 0.34]
+    Campaign F: [0.35, 0.78]</foreign>
+        </p>
+        <p>
+            <foreign outputclass="embed-mermaid-diagram">    requirementDiagram
+
+    requirement test_req {
+    id: 1
+    text: the test text.
+    risk: high
+    verifymethod: test
+    }
+
+    functionalRequirement test_req2 {
+    id: 1.1
+    text: the second test text.
+    risk: low
+    verifymethod: inspection
+    }
+
+    performanceRequirement test_req3 {
+    id: 1.2
+    text: the third test text.
+    risk: medium
+    verifymethod: demonstration
+    }
+
+    interfaceRequirement test_req4 {
+    id: 1.2.1
+    text: the fourth test text.
+    risk: medium
+    verifymethod: analysis
+    }
+
+    physicalRequirement test_req5 {
+    id: 1.2.2
+    text: the fifth test text.
+    risk: medium
+    verifymethod: analysis
+    }
+
+    designConstraint test_req6 {
+    id: 1.2.3
+    text: the sixth test text.
+    risk: medium
+    verifymethod: analysis
+    }
+
+    element test_entity {
+    type: simulation
+    }
+
+    element test_entity2 {
+    type: word doc
+    docRef: reqs/test_entity
+    }
+
+    element test_entity3 {
+    type: "test suite"
+    docRef: github.com/all_the_tests
+    }
+
+
+    test_entity - satisfies -> test_req2
+    test_req - traces -> test_req2
+    test_req - contains -> test_req3
+    test_req3 - contains -> test_req4
+    test_req4 - derives -> test_req5
+    test_req5 - refines -> test_req6
+    test_entity3 - verifies -> test_req5
+    test_req &lt;- copies - test_entity2</foreign>
+        </p>
+        <p><b>XY Chart </b><foreign outputclass="embed-mermaid-diagram">xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]</foreign></p>
+        <p>gitGraph:</p>
+        <p> commit "Ashish"</p>
+        <p> branch newbranch</p>
+        <p> checkout newbranch</p>
+        <p> commit id:"1111"</p>
+        <p> commit tag:"test"</p>
+        <p> checkout main</p>
+        <p> commit type: HIGHLIGHT</p>
+        <p> commit</p>
+        <p> merge newbranch</p>
+        <p> commit</p>
+        <p> branch b2</p>
+        <p> commit</p>
+        <p>sequenceDiagram</p>
+        <p> Alice ->> Bob: Hello Bob, how are you?</p>
+        <p> Bob-->>John: How about you John?</p>
+        <p> Bob--x Alice: I am good thanks!</p>
+        <p> Bob-x John: I am good thanks!</p>
+        <p> Note right of John: Bob thinks a long&lt;br/>long time, so long&lt;br/>that the text
+            does&lt;br/>not fit on a row.</p>
+        <p> Bob-->Alice: Checking with John...</p>
+        <p> Alice->John: Yes... John, how are you?</p>
+        <p>Project-based Review Task Workflow (created inside a project):<ul id="ul_tfg_kyr_szb">
+                <li>At the end of the review process, the task owner (<b>Content Author</b>) has the
+                    ability to integrate changes proposed by reviewers into their documentation
+                    project directly within the Content Fusion browser interface.</li>
+                <li>The changes made to a project-based review task are stored in the Git repository
+                    and merged into the project's branch and pushed to the upstream remote
+                    repository when the task is finished.</li>
+            </ul></p>
+        <section id="section_vkk_v4s_1yb">
+            <title>Review Task States</title>
+            <p>Content Fusion review tasks can be in one of the following possible states:</p>
+            <p>
+                <foreign outputclass="embed-mermaid-diagram">flowchart LR
+    A[In review] -->|Close review| B(Review Closed)
+    B -.-> |Reopen review|A
+    B --> |Integrating changes| C(Integrating)
+    C-.-> |Cancel integration| B
+    C -->|Finalize integration| D[Integrated]    </foreign>
+                <ul id="ul_dxr_lps_1yb">
+                    <li>
+                        <p><uicontrol>In review</uicontrol> - This is the initial status for newly
+                            created review tasks and they remain in this state until the task has
+                            been closed by the task owner. Both reviewers and task owners can edit
+                            the task files while in this state.</p>
+                    </li>
+                    <li><uicontrol>Review closed</uicontrol> - Tasks are changed to this status when
+                        a task owner uses the <uicontrol>Close Review</uicontrol> button to close
+                        the task. Only task owners can edit the task files while in this state (they
+                        are read-only for reviewers). Task owners can reopen the task and its status
+                        will return to <uicontrol>In review</uicontrol>.</li>
+                    <li><uicontrol>Integrating</uicontrol> (for project-based review tasks only) -
+                        Tasks are changed to this status when a task owner uses the <uicontrol>Start
+                            Integrating</uicontrol> button to integrate the proposed changes into
+                        the project. Only the task owner that started the integration can edit the
+                        task files while in this state (they are read-only for all other
+                        collaborators). Note that this task status is only viewable by those with a
+                            <i>platform user role of <uicontrol>Author</uicontrol></i>.</li>
+                    <li><uicontrol>Integrated</uicontrol> (for project-based review tasks only) -
+                        Tasks are changed to this status when a task owner uses the
+                            <uicontrol>Finish Integration</uicontrol> button once the integration is
+                        complete. Task files are read-only for all participants. An integrated
+                        review task can no longer be re-opened. Note that this task status is only
+                        viewable by those with a <i>platform user role of
+                                <uicontrol>Author</uicontrol></i>.</li>
+                </ul>
+            </p>
+        </section>
     </body>
 </topic>
