@@ -15,7 +15,8 @@ When you commit or save the map, all the modified topics are also saved.
     <topicref href="tasks/gardenPreparation.dita"/>
   </topicref>
   <topicref
-    href="webdav-http://test-services.sync.ro/webdav-qa/ddd_vechi/mobile-phone/topics/phoneBasics.dita"/>
+    href="webdav-http://test-services.sync.ro/webdav-qa/test/ddd/ditamap/userguide-master/DITA/maps/chapter-installation.ditamap"
+    format="ditamap"/>
   <topicref href="topics/index.dita" collection-type="sequence">
     <topicref href="concepts/springFlowers.dita" collection-type="sequence">
       <topicref href="topics/flowers/iris.dita"/>
