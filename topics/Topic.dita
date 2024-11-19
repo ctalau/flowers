@@ -416,7 +416,7 @@ classDiagram
         <p> commit type: HIGHLIGHT</p>
         <p> commit</p>
         <p> merge newbranch</p>
-        <p> commit</p>
+        <p>commit1</p>
         <p> branch b2</p>
         <p> commit</p>
         <p>sequenceDiagram</p>
